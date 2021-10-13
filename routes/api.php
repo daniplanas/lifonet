@@ -25,4 +25,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('v1/comm/{code}/stream',[ApiController::class,'apiProcessing'])
     ->middleware(DefaultApiAcceptJson::class);
-
+Route::get('v1/comm/{code}/stream/{time}/{type}/{value}',[ApiController::class,'apiProcessingGet']);
