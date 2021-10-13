@@ -121,11 +121,11 @@ class InitialSeeder extends Seeder
                 'status' => 1,
             ]);
         }
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             Container::create([
                 'code' => Str::random(10),
-                'lat' => $faker->latitude,
-                'long' => $faker->longitude,
+                'lat' => '41.404133',
+                'long' => '2.140596',
                 'address' => $faker->streetAddress,
                 'postal_code' => $faker->postcode,
                 'city' => $faker->city,
