@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\BackendController;
+use App\Http\Middleware\DefaultApiAcceptJson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 */
-Route::post('v1/comm/{code}/stream',[ApiController::class,'apiProcessing']);
+
+Route::post('v1/comm/{code}/stream',[ApiController::class,'apiProcessing'])
+    ->middleware(DefaultApiAcceptJson::class);
 
