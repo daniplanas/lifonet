@@ -1,0 +1,24 @@
+id: 20509
+name: residus
+environments:
+    production:
+        memory: 1024
+        cli-memory: 512
+        runtime: 'php-7.4:al2'
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'php artisan event:cache'
+            - 'npm ci && npm run prod && rm -rf node_modules'
+    staging:
+        memory: 1024
+        cli-memory: 512
+        database: nixusTestDB
+        domain: residus.nixus.io
+        capacity: 5
+        warm: 3
+        timeout: 30
+        runtime: 'php-7.4:al2'
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
+            - 'php artisan event:cache'
+            - 'npm ci && npm run dev && rm -rf node_modules'
