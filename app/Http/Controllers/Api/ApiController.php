@@ -18,26 +18,11 @@ class ApiController extends Controller
             return response()->json(false,500);
         }
         $requestData = json_decode($request->getContent(),true);
-        if(isset($requestData['distance'])){
-
+        if($code != $requestData['d']){
+            return response()->json(false,500);
         }
-
         switch ($requestData['type']) {
-            case 'd':
-                $distance = ContainerDistance::create([
-                    'container_id' => $container->id,
-                    'distance' => (int)$requestData['v']
-                ]);
-                if($requestData['v']<3500){
-                    ContainerAlert::create([
-                        'container_id' => $container->id,
-                        'type' => 1,
-                        'alarmeable_type' => 'App\Models\ContainerDistance',
-                        'alarmeable_id' => $distance->id
-                    ]);
-                }
-                break;
-            case 't':
+            case 1:
                 $temperature = ContainerTemperature::create([
                     'container_id' => $container->id,
                     'temperature' => (int)$requestData['v']
@@ -51,7 +36,21 @@ class ApiController extends Controller
                     ]);
                 }
                 break;
-            case 'a':
+            case 2:
+                $distance = ContainerDistance::create([
+                    'container_id' => $container->id,
+                    'distance' => (int)$requestData['v']
+                ]);
+                if($requestData['v']<3500){
+                    ContainerAlert::create([
+                        'container_id' => $container->id,
+                        'type' => 1,
+                        'alarmeable_type' => 'App\Models\ContainerDistance',
+                        'alarmeable_id' => $distance->id
+                    ]);
+                }
+                break;
+            case 3:
                 $openning = ContainerTemperature::create([
                     'container_id' => $container->id,
                     'data' => now()->timestamp
