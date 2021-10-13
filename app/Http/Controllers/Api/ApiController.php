@@ -18,7 +18,7 @@ class ApiController extends Controller
             return response()->json(false,500);
         }
         $requestData = json_decode($request->getContent(),true);
-        if($code != $requestData['device']){
+        if($code != $requestData['d']){
             return response()->json(false,500);
         }
         switch ($requestData['type']) {
