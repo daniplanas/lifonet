@@ -33,7 +33,7 @@ class Distance extends Component
         }
 
         return view('livewire.container.data.distance',[
-            'containerValues' => $containerValues->orderBy('created_at','desc')->paginate(10),
+            'containerValues' => $containerValues->orderBy('created_at','desc')->simplePaginate(10),
             'distancesChart' => $distancesChart
         ]);
     }

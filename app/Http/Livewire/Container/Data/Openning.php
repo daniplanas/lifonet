@@ -26,7 +26,7 @@ class Openning extends Component
         }
         $containerValuesComplete = (clone $containerValues)->orderBy('created_at','desc')->limit(100)->get();
         return view('livewire.container.data.openning',[
-            'opennings' => $containerValues->orderBy('created_at','desc')->paginate(10),
+            'opennings' => $containerValues->orderBy('created_at','desc')->simplePaginate(10),
         ]);
     }
 }
