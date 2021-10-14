@@ -31,7 +31,7 @@ class Temperature extends Component
             ->setXAxisVisible(false)
             ->setDataLabelsEnabled(true);
         foreach($containerValuesComplete as $item){
-            $temperaturesChart->addPoint($item->created_at->format('d/m/Y'), $item->temperature, '#1ebabd');
+            $temperaturesChart->addPoint($item->created_at->format('d/m/Y H:i:s'), $item->temperature, '#1ebabd');
         }
 
         return view('livewire.container.data.temperature',[

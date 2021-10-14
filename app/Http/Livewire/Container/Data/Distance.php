@@ -29,7 +29,7 @@ class Distance extends Component
             ->setXAxisVisible(false)
             ->setDataLabelsEnabled(true);
         foreach($containerValuesComplete->reverse() as $item){
-            $distancesChart->addPoint($item->created_at->format('d/m/Y'), $item->distance/100, '#1ebabd');
+            $distancesChart->addPoint($item->created_at->format('d/m/Y H:i:s'), $item->distance/10, '#1ebabd');
         }
 
         return view('livewire.container.data.distance',[
