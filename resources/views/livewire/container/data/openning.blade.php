@@ -43,7 +43,7 @@
                             @empty
                             <tr class="bg-white">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    No hay termperaturas registradas
+                                    No hay aperturas registradas
                                 </td>
                             </tr>
                             @endforelse
