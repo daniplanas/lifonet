@@ -93,7 +93,7 @@ class ApiController extends Controller
                     'container_id' => $container->id,
                     'temperature' => $value
                 ]);
-                if($value<3000){
+                if($value>300){
                     ContainerAlert::create([
                         'container_id' => $container->id,
                         'type' => 1,
@@ -107,7 +107,7 @@ class ApiController extends Controller
                     'container_id' => $container->id,
                     'distance' => $value
                 ]);
-                if($value<3500){
+                if($value<350){
                     ContainerAlert::create([
                         'container_id' => $container->id,
                         'type' => 1,
@@ -121,7 +121,7 @@ class ApiController extends Controller
                     'container_id' => $container->id,
                     'data' => now()->timestamp
                 ]);
-                if($value<3000){
+                if($value>300){
                     ContainerAlert::create([
                         'container_id' => $container->id,
                         'type' => 1,
