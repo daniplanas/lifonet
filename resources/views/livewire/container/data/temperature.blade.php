@@ -32,7 +32,7 @@
                             @forelse ($temperatures as $temperature)
                             <tr class="{{ $loop->odd ? 'bg-white' : 'bg-gray-50' }}">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    {{ $temperature->temperature }}
+                                    {{ number_format($temperature->temperature/10,2,',','.') }} ºC
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{ $temperature->created_at->format('d/m/Y H:i:s') }}
