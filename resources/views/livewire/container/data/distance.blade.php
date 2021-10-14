@@ -52,7 +52,10 @@
                             @endforelse
                         </tbody>
                     </table>
-                    {{ $containerValues->links() }}
+                    <div class="p-2">
+                        {{ $containerValues->links() }}
+                    </div>
+
                 </div>
             </div>
         </div>
