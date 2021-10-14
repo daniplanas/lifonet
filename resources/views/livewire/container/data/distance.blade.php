@@ -32,7 +32,7 @@
                             @forelse ($containerValues as $distance)
                             <tr class="{{ $loop->odd ? 'bg-white' : 'bg-gray-50' }}">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    {{ number_format($distance->distance/100,2,',','.') }} cm
+                                    {{ number_format($distance->distance/10,2,',','.') }} cm
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{ $distance->created_at->format('d/m/Y H:i:s') }}
