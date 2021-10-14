@@ -22,7 +22,7 @@ class Distance extends Component
         if(($this->from != '')&&($this->to != '')){
             $containerValues->whereBetween('created_at',[$this->from,$this->to]);
         }
-        $containerValuesComplete = (clone $containerValues)->orderBy('created_at','desc')->limit(100)->get();
+        $containerValuesComplete = (clone $containerValues)->orderBy('created_at','desc')->limit(10)->get();
         $distancesChart = (new lineChartModel())
             ->setAnimated(false)
             ->setSmoothCurve()

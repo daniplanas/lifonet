@@ -24,7 +24,7 @@ class Openning extends Component
         if(($this->from != '')&&($this->to != '')){
             $containerValues->whereBetween('created_at',[$this->from,$this->to]);
         }
-        $containerValuesComplete = (clone $containerValues)->orderBy('created_at','desc')->limit(100)->get();
+        //$containerValuesComplete = (clone $containerValues)->orderBy('created_at','desc')->limit(10)->get();
         return view('livewire.container.data.openning',[
             'opennings' => $containerValues->orderBy('created_at','desc')->simplePaginate(10),
         ]);

@@ -24,7 +24,7 @@ class Temperature extends Component
         if(($this->from != '')&&($this->to != '')){
             $containerValues->whereBetween('created_at',[$this->from,$this->to]);
         }
-        $containerValuesComplete = (clone $containerValues)->orderBy('created_at','desc')->limit(100)->get();
+        $containerValuesComplete = (clone $containerValues)->orderBy('created_at','desc')->limit(10)->get();
         $temperaturesChart = (new lineChartModel())
             ->setAnimated(false)
             ->setSmoothCurve()
