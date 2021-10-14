@@ -26,6 +26,11 @@
         'containerId' => $container->id
         ])
     </div>
+    <div class="my-5">
+        @livewire('container.data.openning',[
+        'containerId' => $container->id
+        ])
+    </div>
 
 </div>
 
