@@ -49,6 +49,9 @@
                             @endforelse
                         </tbody>
                     </table>
+                    <div class="p-2">
+                        {{ $opennings->links() }}
+                    </div>
                 </div>
             </div>
         </div>

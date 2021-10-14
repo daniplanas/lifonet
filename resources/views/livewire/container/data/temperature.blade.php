@@ -52,6 +52,9 @@
                             @endforelse
                         </tbody>
                     </table>
+                    <div class="p-2">
+                        {{ $temperatures->links() }}
+                    </div>
                 </div>
             </div>
         </div>

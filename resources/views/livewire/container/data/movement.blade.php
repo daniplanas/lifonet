@@ -52,7 +52,9 @@
                             @endforelse
                         </tbody>
                     </table>
-                    {{ $inclinations->links() }}
+                    <div class="p-2">
+                        {{ $inclinations->links() }}
+                    </div>
                 </div>
             </div>
         </div>
