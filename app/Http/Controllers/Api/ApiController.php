@@ -27,7 +27,7 @@ class ApiController extends Controller
                     'container_id' => $container->id,
                     'temperature' => (int)$requestData['v']
                 ]);
-                if($requestData['v']<3000){
+                if($requestData['v']>300){
                     ContainerAlert::create([
                         'container_id' => $container->id,
                         'type' => 1,
@@ -41,7 +41,7 @@ class ApiController extends Controller
                     'container_id' => $container->id,
                     'distance' => (int)$requestData['v']
                 ]);
-                if($requestData['v']<3500){
+                if($requestData['v']<350){
                     ContainerAlert::create([
                         'container_id' => $container->id,
                         'type' => 1,
@@ -55,14 +55,6 @@ class ApiController extends Controller
                     'container_id' => $container->id,
                     'data' => now()->timestamp
                 ]);
-                if($requestData['v']<3000){
-                    ContainerAlert::create([
-                        'container_id' => $container->id,
-                        'type' => 1,
-                        'alarmeable_type' => 'App\Models\ContainerOpenning',
-                        'alarmeable_id' => $openning->id
-                    ]);
-                }
                 break;
             default:
                 # code...
@@ -121,24 +113,11 @@ class ApiController extends Controller
                     'container_id' => $container->id,
                     'data' => now()->timestamp
                 ]);
-                if($value>300){
-                    ContainerAlert::create([
-                        'container_id' => $container->id,
-                        'type' => 1,
-                        'alarmeable_type' => 'App\Models\ContainerOpenning',
-                        'alarmeable_id' => $openning->id
-                    ]);
-                }
                 break;
             default:
                 # code...
                 break;
         }
-
-
-
-
-
         return response()->json(true,200);
     }
     public function getDeviceMessage($public_token = null,Request $request)
