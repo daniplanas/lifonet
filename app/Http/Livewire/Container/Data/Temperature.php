@@ -35,7 +35,7 @@ class Temperature extends Component
         }
 
         return view('livewire.container.data.temperature',[
-            'temperatures' => $containerValues->orderBy('created_at','desc')->simplePaginate(10),
+            'temperatures' => $containerValues->orderBy('created_at','desc')->simplePaginate(10, ['*'], 'temperaturePage'),
             'temperaturesChart' => $temperaturesChart
         ]);
     }

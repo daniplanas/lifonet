@@ -35,7 +35,7 @@ class Movement extends Component
         }
 
         return view('livewire.container.data.movement',[
-            'inclinations' => $containerValues->orderBy('created_at','desc')->simplePaginate(10),
+            'inclinations' => $containerValues->orderBy('created_at','desc')->simplePaginate(10, ['*'], 'movementPage'),
             'inclinationChart' => $inclinationChart
         ]);
 
