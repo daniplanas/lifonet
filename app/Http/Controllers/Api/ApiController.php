@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Container;
 use App\Models\ContainerAlert;
 use App\Models\ContainerDistance;
+use App\Models\ContainerOpenning;
 use App\Models\ContainerTemperature;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,7 @@ class ApiController extends Controller
                 }
                 break;
             case 3:
-                $openning = ContainerTemperature::create([
+                $openning = ContainerOpenning::create([
                     'container_id' => $container->id,
                     'data' => now()->timestamp
                 ]);
